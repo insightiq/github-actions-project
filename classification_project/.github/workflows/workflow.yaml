@@ -1,0 +1,57 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Install dependencies
+      #run: pip install -r /github-actions-project/classification_project/requirements.txt
+      run: pip install tensorflow
+
+    - name: Build project
+      run: python classification_project/main.py
+      # Store the build output as a log file (you need to create build.py)
+
+    - name: Run tests
+      run: python -m pytest
+      # Store the test results as a log file (you need to install pytest)
+
+    - name: Generate code coverage report
+      uses: actions/upload-artifact@v2
+      with:
+        name: coverage
+        path: coverage/
+      # Store the code coverage results (make sure you generate a coverage report)
+
+#  deploy:
+#    needs: build
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#    - name: Download artifacts
+#      uses: actions/download-artifact@v2
+#      with:
+#        name: coverage
+#
+#    - name: Deploy to AWS
+#      run: |
+#        # Add your deployment script here
+#        # Make sure to use the code coverage and test results
+#
+#    # Add any additional deployment steps if necessary
+#
+#
