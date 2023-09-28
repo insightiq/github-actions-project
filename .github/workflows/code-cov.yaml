@@ -19,7 +19,7 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: pip install -r requirements.txt  # Add any necessary requirements
+        run: pip install -r tensorflow  # Add any necessary requirements
 
       - name: Run tests
         run: python -m unittest discover tests/
