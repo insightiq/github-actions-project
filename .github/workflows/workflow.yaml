@@ -23,7 +23,7 @@ jobs:
       run: pip install tensorflow
 
     - name: Build project
-      run: python classification_project/main.py
+      run: python main.py
       # Store the build output as a log file (you need to create build.py)
 
     - name: Run tests
