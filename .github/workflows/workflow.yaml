@@ -19,7 +19,8 @@ jobs:
         python-version: 3.x
 
     - name: Install dependencies
-      run: pip install -r /github-actions-project/classification_project/requirements.txt
+      #run: pip install -r /github-actions-project/classification_project/requirements.txt
+      run: pip install tensorflow
 
     - name: Build project
       run: python main.py
