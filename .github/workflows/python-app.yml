@@ -24,6 +24,6 @@ jobs:
 
     - name: Run Python code
       run: |
-        python3 main.py
+        /home/runner/work/github-actions-project/github-actions-project/python3 main.py
    
       
