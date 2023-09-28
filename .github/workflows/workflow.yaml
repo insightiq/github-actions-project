@@ -22,7 +22,7 @@ jobs:
         run: pip install tensorflow  # Add any necessary requirements
 
       - name: Run prediction script
-        run: python main.py
+        run: python home/runner/work/github-actions-project/github-actions-project/main.py
 
       - name: Upload prediction result as artifact
         uses: actions/upload-artifact@v2
